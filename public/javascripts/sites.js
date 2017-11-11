@@ -14,12 +14,26 @@ $(document).ready(function(){
         contentType: "application/json; charset=utf-8",
         success: function(data,textStatus) {
           $.getJSON('site', function(data) {
-            var everything = "<ul class='list-group'>";
+            var cards = "";
             for(var site in data) {
               info = data[site];
-              everything += "<li class='list-group-item'> URI: " + info.URI + " -- Bio: " + info.bio + "</li>";
+              card = '
+              <div class="col-sm-3">
+                <div class="card">
+                  <div class="card-image">
+                    <img class="img-responsive" src="' + info.imgURL + '">
+                    <span class="card-title">'+ info.URI +'</span>
+                  </div>
+                  <div class="card-content">
+                    <p>' + info.bio + '</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/site/' + info.URI + '" target="new_blank">See site</a>
+                  </div>
+                </div>
+              </div>';
+              cards+=card;
             }
-            everything += "</ul>";
             $("#cardList").html(everything);
         })
       }
