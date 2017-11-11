@@ -24,7 +24,7 @@ router.post('/submit', function(req, res, next) {
   console.log("SUBMITTED");
   console.log(req.body);
 
-  var newSite = new Site(req.body);
+  var newSite = new Sites(req.body);
   console.log(newSite);
   newSite.save(function(err, post) {
     if (err) return console.error(err);

@@ -21,9 +21,20 @@ $(document).ready(function(){
             }
             everything += "</ul>";
             $("#cardList").html(everything);
-        }
+        })
+      }
     })
   });
+
+  $.getJSON('site', function(data) {
+    var everything = "<ul class='list-group'>";
+    for(var site in data) {
+      info = data[site];
+      everything += "<li class='list-group-item'> URI: " + info.URI + " -- Bio: " + info.bio + "</li>";
+    }
+    everything += "</ul>";
+    $("#cardList").html(everything);
+
 
   // $("#getComments").click(function() {
   //   $.getJSON('comment', function(data) {
