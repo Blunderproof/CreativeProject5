@@ -3,7 +3,7 @@ var router = express.Router();
 /* Set up mongoose in order to connect to mongo database */
 var mongoose = require('mongoose'); //Adds mongoose as a usable dependency
 
-mongoose.connect('mongodb://localhost/commentDB', { useMongoClient: true }); //Connects to a mongo database called "commentDB"
+mongoose.connect('mongodb://localhost/siteDB', { useMongoClient: true }); //Connects to a mongo database called "commentDB"
 
 var siteSchema = mongoose.Schema({ //Defines the Schema for this database
 URI: String,
@@ -43,6 +43,18 @@ router.get('/site', function(req, res, next) {
   })
 })
 
+
+router.get('/site/:siteURI', function(req, res, next) {
+  var siteURIString = req.params.siteURI;
+
+  Sites.findOne({ 'URI': siteURIString}, 'URI bio imgURL', function(err, siteInfo) {
+    if (err) return console.error(err);
+    else{
+      console.log(siteInfo);
+      res.json(siteInfo);
+    }
+  });
+});
 
 
 // router.post('/comment', function(req, res, next) {

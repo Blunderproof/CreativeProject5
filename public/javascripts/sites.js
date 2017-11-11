@@ -34,7 +34,7 @@ $(document).ready(function(){
     }
     everything += "</ul>";
     $("#cardList").html(everything);
-
+  })
 
   // $("#getComments").click(function() {
   //   $.getJSON('comment', function(data) {
