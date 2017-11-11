@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="./stylesheets/style.css">
+
+<style>
+
+
+</style>
+
+<title>Comments!</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="javascripts/comments.js"></script>
+</head>
+
+<body>
+<div class="bg">
+<div class="container" style="padding-top: 20px;">
+<form id="commentForm" action="" class="form-inline">
+  <div class="form-group">
+    <label for="name" class="sr-only">Name: </label>
+    <input required class="form-control" type="text" id="name" placeholder="Name"><br>
+  </div>
+  <div class="form-group">
+    <label for="comment" class="sr-only">comment: </label>
+    <input required class="form-control" type="text" id="comment" placeholder="Comment"><br>
+  </div>
+</form>
+<div style="padding: 10px;">
+  <button id="postComment" class="btn btn-default" >Post Comment</button>
+
+  <button id="getComments" class="btn btn-default">Get Comments</button>
+  <button id="deleteComments" class="btn btn-warning">Delete All</button>
+</div>
+<div style="padding: 10px;">
+  <div id="json"></div>
+  <div id="done"></div>
+  <div id="comments"></div>
+</div>
+</div>
+</div>
+</body>
+</html>
