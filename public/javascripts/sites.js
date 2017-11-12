@@ -10,7 +10,7 @@ $(document).ready(function(){
       
       if(check){ 
         
-        var myobj = {URI: uriString, bio:$("#bioInput").val(), imgURL: imgString};
+        var myobj = {URI: uriString, bio:$("#bioInput").val(), imgURL: imgString, password: $("#pwdInput").val()};
         jobj = JSON.stringify(myobj);
         console.log("HERE", jobj);
         var url = "submit";
@@ -51,7 +51,6 @@ $(document).ready(function(){
     type: "GET",
     dataType: 'json',
     async: false,
-    
     success: function(data) {
       for(var site in data){
         var URI = data[site].URI;
@@ -66,7 +65,7 @@ $(document).ready(function(){
 }
       
               
-   $.getJSON('site', function(data) {
+  $.getJSON('site', function(data) {
      var cards = "";
      for(var site in data) {
         info = data[site];
